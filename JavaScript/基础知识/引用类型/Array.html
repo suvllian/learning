@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Array</title>
+</head>
+<body>
+<script type="text/javascript">
+	//定义数组
+	var array1 = new Array(20);
+	var array2 = new Array("red","Blue","black");
+	var array3 = [];
+
+	var arrayLength = array1.length;
+	console.log(arrayLength);
+	//length不是只读的，可以通过设置length属性，删除数组末尾的项，或添加新项
+
+	//1、检测数组
+	if(array2 instanceof Array){
+		console.log("Is Array");
+	}
+	if(Array.isArray(array2)){
+		console.log("Is Array");
+	}
+
+	//2、转换方法
+	var string = array2.toString();
+	var string1 = array2.valueOf();
+	var string2 = array2.toLocaleString();
+	var string3 = array2.join("||");
+
+	console.log("1:"+string+" 2:"+string1+"  3:"+string2+"  4:"+string3);
+
+	//toLocaleString方法与toString方法不同。
+
+	var person1 = {
+		toLocaleString:function(){
+			return "person1 toLocaleString";
+		},
+
+		toString:function(){
+			return "person1 toString";
+		}
+	};
+
+	var person2 = {
+		toLocaleString:function(){
+			return "person2 toLocaleString";
+		},
+
+		toString:function(){
+			return "person2 toString";
+		}
+	}
+
+	var people = [person1,person2];
+	console.log(people.toString());
+	console.log(people.toLocaleString());
+
+	//3、栈方法和队列方法
+
+	var city = new Array();
+	//push返回修改后数组长度
+	var count = city.push("BeiJing","Tianjin");
+	console.log(city+"  "+count);
+	//pop返回删除的项
+	var item = city.pop();
+	console.log(city+"  |item|"+item+"  Length:"+city.length);
+	//shift从前面删除
+	city.push("Xi'an","Wu Han");
+	var item = city.shift();
+	console.log(city+" |item| "+item+"  Length:"+city.length);
+	//unshift从前面添加
+	count = city.unshift("Guang zhou");
+	console.log(city+"  "+count);
+
+	//重排序
+	var numbers = [1,4,2,5,3,44,22,12];
+	console.log(numbers);
+	console.log(numbers.reverse());
+	console.log(numbers.sort());
+
+	//返回负数：第一参数在第二参数前
+	//返回正数第一参数位于第二参数后
+	function compare(value1,value2){
+		return value1-value2;
+	}
+	console.log(numbers.sort(compare));
+
+	//4、操作方法
+	//拼接数组
+	var colors = ["red","green"];
+	var colors1 = colors.concat("yellow",["black","white"]);
+	console.log(colors1);
+
+	var colors2 = colors1.slice(1);
+	console.log(colors2);
+	var colors3 = colors1.slice(1,3);
+	console.log(colors3);
+
+	//splice方法
+	//删除splice(删除的第一项位置，删除项数)
+	var num = [1,2,3,4,5,6,7];
+	console.log(num);
+	var deleteNum = num.splice(6,1);
+	console.log(deleteNum+"   "+num);
+
+	//插入splice(起始位置，0(要删除的项数),要插入的项)
+	deleteNum = num.splice(0,0,-1,11);
+	console.log(deleteNum+"   "+num);
+
+	//替换splice(起始位置，要删除的项数,要插入的项)
+
+	deleteNum = num.splice(6,2,88,99);
+	console.log(deleteNum+"   "+num);
+
+	//5、位置方法
+	console.log(num.indexOf(88));
+	console.log(num.lastIndexOf(-1));
+
+	//6、迭代方法
+	var members = [1,2,3,4,5,6,7,8,9,10,1,2];
+
+	//every
+	var everyResult = members.every(function(item,index,array){
+		return (item>2);
+	});
+	console.log("everyResult:"+everyResult);
+
+	//Some
+	var someResult = members.some(function(item,index,array){
+		return (item>8);
+	});
+	console.log("someResult:"+someResult);
+
+	//filter
+
+	var filterResult = members.filter(function(item,index,array){
+		return (item>6);
+	});
+	console.log("filterResult:"+filterResult);
+
+	//map
+
+	var mapResult = members.map(function(item,index,array){
+		return item*2;
+	});
+	console.log("mapResult"+mapResult);
+
+	//无返回值
+	var forEachResult = members.forEach(function(item,index,array){
+		//do someThing
+	});
+
+	//7、归并方法
+	//reduce和reduceRight都会迭代数组所有项 reduce从前面开始reduceRight从后面开始
+	//四个参数：前一个值，当前值，项的索引，数组对象
+	var sum = members.reduce(function(prev,cur,index,array){
+		return prev + cur;
+	})
+	console.log(sum);
+
+	var sum = members.reduceRight(function(prev,cur,index,array){
+		return prev + cur;
+	})
+	console.log(sum);
+	
+</script>
+</body>
+</html>

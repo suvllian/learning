@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DEMO6：自定义画板</title>
+	<style type="text/css">
+	body{
+		height: 100%;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+	</style>
+</head>
+<body style="height: 100%;width: 100%;margin: 0;padding: 0;">
+<canvas id="canvas" style=" height: 100%;width: 100%;margin: 0;padding: 0;display: block;">
+	浏览器不支持canvas   <!-- 如果不支持会显示这段文字 -->
+</canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');  //获取标签
+	var ctx = canvas.getContext("2d");  
+
+	w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;   //是canvas画布适应屏幕大小
+
+	var fillStyle = "black";
+	ctx.fillRect(0,0,w,h);
+	var onoff = false;  //按下标记
+	var oldx = -10;
+	var oldy = -10;
+	//设置颜色
+	var linecolor = "white";
+	var linw = 4;
+
+	
+
+	canvas.addEventListener("mousemove",draw,true);  //鼠标移动事件
+	canvas.addEventListener("mousedown",down,false);  //鼠标按下事件
+	canvas.addEventListener("mouseup",up,false);  //鼠标弹起事件
+	function down(event){
+		onoff = true;
+		oldx = event.pageX - 10;
+		oldy = event.pageY - 10;
+	}
+	function up(){
+		onoff = false;
+	}
+	function draw(event){
+		if (onoff==true) {
+			var newx = event.pageX - 10;
+			var newy = event.pageY - 10
+			ctx.beginPath();
+			ctx.moveTo(oldx,oldy);
+			ctx.lineTo(newx,newy);
+			ctx.strokeStyle = linecolor;
+			ctx.lineWidth = linw;
+			ctx.lineCap = "round";
+			ctx.stroke();
+
+			oldx = newx;
+			oldy = newy;
+		}
+	}
+
+	//74!
+	</script> 
+</body>
+</html>

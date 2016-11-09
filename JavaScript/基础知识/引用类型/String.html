@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>String</title>
+</head>
+<body>
+<script type="text/javascript">
+	var string = "Hello+World!";
+
+	//创建String对象，其中所有的方法在基本字符串中都可以访问到
+	var stringObject = new String("Hello World");
+	console.log(stringObject.valueOf());
+	console.log(stringObject.toString());
+	console.log(stringObject.toLocaleString());
+	console.log("字符串长度"+stringObject.length);
+	
+	console.log("1、字符方法");
+	console.log(string.charCodeAt(0));
+	console.log(string.charAt(0));
+
+	console.log("2、字符串操作方法");
+	console.log("无第二参数");
+	console.log(string.slice(2));
+	console.log(string.substr(2));
+	console.log(string.substring(2));
+	
+	console.log("有第二参数:");
+	console.log("slice、substring指定终止位置，substr指定返回字符个数");
+	console.log(string.slice(2,3));
+	console.log(string.substr(2,3));
+	console.log(string.substring(2,3));
+
+
+	//slice将传入的负值和字符串长度相加后再做处理
+	//substr将负的第一参数加上字符串的长度 将负的第二参数变为0
+	//substring将所有负值都变为0，而且处理前会对两个参数进行比较，将较小值放到第一参数的位置
+	console.log("参数为负数");
+	console.log(string.slice(-1));
+	console.log(string.substr(-1));
+	console.log(string.substring(-1	));
+	console.log("第二参数为负数");
+	console.log(string.slice(2,-3));
+	console.log(string.substr(2,-3));
+	console.log(string.substring(2,-3));
+
+
+	//字符串位置
+	console.log(string.indexOf("l"));
+	console.log(string.lastIndexOf("l"));
+	//第二参数  从第几个字符开始找
+	console.log(string.indexOf("l",3));
+	console.log(string.lastIndexOf("l",6));
+
+	//去除首尾空格
+	var stringTrim = " trim  ";
+	console.log(stringTrim.trim());
+
+	//大小写转换
+	//不知道代码会在哪种语言环境运行 推荐使用locale
+	console.log(string.toLowerCase());
+	console.log(string.toLocaleLowerCase());
+	console.log(string.toUpperCase());
+	console.log(string.toLocaleUpperCase());
+
+	//字符串模式匹配 match replace
+	var pattern = /.ll./;
+	var matches = string.match(pattern);
+	console.log(matches);
+	console.log(matches[0]);
+	console.log(string.replace(/l/g,"+a+"));
+
+
+	//比较字符串 返回-1、0、1
+	console.log(string.localeCompare("Hello+World!"));
+	console.log(string.localeCompare("aaaaa"));
+	console.log(string.localeCompare("zzz"));
+
+	//将传入的字符编码转换成字符串
+	console.log(String.fromCharCode(104,101,108,108,111));
+
+
+	//字符串编码函数
+	function htmlEscape(text){
+		return text.replace(/[<>"&"]/g,function(match,pos,originalText){
+			switch(match){
+				case "<":
+					return "&lt";
+				case ">":
+					return "&gt";
+				case "\"":
+					return "&quot";
+				case "&":
+					return "&amp";
+			}
+		});
+	}
+
+	console.log(htmlEscape("<script>"));
+</script>
+</body>
+</html>

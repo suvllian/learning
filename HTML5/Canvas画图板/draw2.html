@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>自定义画板</title>
+</head>
+<body>
+<canvas id="canvas" width="600" height="300">
+	浏览器不支持canvas   <!-- 如果不支持会显示这段文字 -->
+</canvas>
+<br/>
+<button style="width:80px;background-color:yellow;" onclick='linecolor="yellow";'>YELLOW</button>
+<button style="width:80px ;background-color:red;" onclick='linecolor="red";'>RED</button>
+<button style="width:80px ;background-color:blue;" onclick='linecolor="blue";'>BLUE</button>
+<button style="width:80px ;background-color:green;" onclick='linecolor="green";'>GREEN</button>
+<button style="width:80px ;background-color:white;" onclick='linecolor="white";'>WHITE</button>
+<button style="width:80px ;background-color:black;" onclick='linecolor="black";'>BLACK</button>
+<br/>
+
+<button style="width: 80px;background-color: white;" onclick="linw=4;">4PX</button>
+<button style="width: 80px;background-color: white;" onclick="linw=8;">8PX</button>
+<button style="width: 80px;background-color: white;" onclick="linw=16;">16PX</button>
+<br/>
+
+<button style="width: 80px;background-color: white;" onclick="copyimage();">EXPORT</button>
+
+<br/>
+<img src="" id="image_png" width="600px" height="300px">
+<br/>
+
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');  //获取标签
+	var ctx = canvas.getContext("2d");  
+
+	ctx.fillStyle = "white";
+	ctx.fillRect(0,0,600,300);
+
+	var onoff = false;  //按下标记
+	var oldx = -10;
+	var oldy = -10;
+	//设置颜色
+	var linecolor = "white";
+	var linw = 4;
+	canvas.addEventListener("mousemove",draw,true);  //鼠标移动事件
+	canvas.addEventListener("mousedown",down,false);  //鼠标按下事件
+	canvas.addEventListener("mouseup",up,false);  //鼠标弹起事件
+	function down(event){
+		onoff = true;
+		oldx = event.pageX - 10;
+		oldy = event.pageY - 10;
+	}
+	function up(){
+		onoff = false;
+	}
+	function draw(event){
+		if (onoff==true) {
+			var newx = event.pageX - 10;
+			var newy = event.pageY - 10
+			ctx.beginPath();
+			ctx.moveTo(oldx,oldy);
+			ctx.lineTo(newx,newy);
+			ctx.strokeStyle = linecolor;
+			ctx.lineWidth = linw;
+			ctx.lineCap = "round";
+			ctx.stroke();
+
+			oldx = newx;
+			oldy = newy;
+		}
+	}
+	function copyimage(event)
+	{
+		var img_png_src = canvas.toDataURL("image/png");  //将画板保存为图片格式的函数
+		document.getElementById("image_png").src = img_png_src;
+	}
+	
+	</script> 
+</body>
+</html>
