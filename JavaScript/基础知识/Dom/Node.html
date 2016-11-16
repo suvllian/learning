@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Node类型</title>
+</head>
+<body>
+<div id="parent">
+	<p class="child">1</p>
+	<p class="child">2</p>
+	<p class="child">3</p>
+	<p class="child">4</p>
+	<p class="child">5</p>
+	<p class="child">6</p>
+	<p class="child">7</p>
+</div>
+<script type="text/javascript">
+	//每个节点都有nodeType属性，表明节点类型。节点类型由在Node类型中定义的12个数值常量来表示。
+
+	var oParent = document.getElementById("parent");
+
+	//1、nodeName、nodeType、nodeValue
+
+	//IE中无效
+	if (oParent.nodeType==Node.ELEMENT_NODE) {
+		console.log("Node is an element.");
+	}
+	//为保证浏览器兼容性，使用数值进行比较
+	if (oParent.nodeType==1) {
+		console.log("Node is an element.");
+		//nodeName的值是元素的标签名
+		var value = oParent.nodeName;
+		console.log(value);
+	}
+
+	//2、节点关系
+	var childList = oParent.childNodes;
+	console.log(childList);
+	//访问方法，方括号或item
+	//特别注意：换行处的空白文本也算作子节点
+	console.log(childList[0]);
+	console.log(childList.item(1));
+	console.log(childList.length);
+
+	//将NodeList转换成数组
+	function convertToArray(nodes){
+		var array = null;
+		try{
+			array = Array.prototype.slice.call(nodes,0);
+		}catch(ex){
+			array = new Array();
+			for(var i=0,len=nodes.length;i<len;i++){
+				array.push(nodes[i]);
+			}
+		}
+		return array;
+	}
+	console.log(convertToArray(childList));
+
+	//3、node常用属性
+	//parentNode
+	var parentNodeName = childList[0].parentNode;
+	console.log(parentNodeName);
+	//previousSibling
+	var previousNodeName = childList[1].previousSibling;
+	console.log(previousNodeName);
+	//nextSibling
+	var nextNodeName = childList[0].nextSibling;
+	console.log(nextNodeName);
+	//firstChild和lastChild
+	var firstChildName = oParent.firstChild;
+	console.log(firstChildName);
+	var lastChildName = oParent.lastChild;
+	console.log(lastChildName);
+
+	//判断是否有子节点hasChildNodes()。返回布尔值
+	var bTrue = childList[0].hasChildNodes();
+	console.log(bTrue);
+
+	//4、操作节点
+	//appendChild。返回新增的节点
+	//如果传入的节点已经是文档的一部分，则是奖结点从原来的位置移到新位置
+	//任何DOM结点不能同时出现在文档中的多个位置
+	var returnNode = oParent.appendChild(childList[1]);
+	console.log(returnNode);
+
+	//insertBefore
+	returnNode = oParent.insertBefore(childList[4],oParent.firstChild);
+	console.log(returnNode);
+	console.log(childList);
+
+	//replaceChild和removeChild
+	returnNode = oParent.replaceChild(childList[0],childList[childList.length-1]);
+	console.log(returnNode.firstChild);
+
+	returnNode = oParent.removeChild(oParent.lastChild);
+
+	//5、其他方法  克隆 cloneNode
+	var deepList = oParent.cloneNode(true);
+	console.log(deepList.childNodes.length);
+	oParent.appendChild(deepList);
+
+	var shallowList = oParent.cloneNode(false);
+	console.log(shallowList.childNodes.length);
+</script>
+</body>
+</html>
