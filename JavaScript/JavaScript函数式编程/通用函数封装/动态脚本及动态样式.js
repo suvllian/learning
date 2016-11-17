@@ -18,9 +18,9 @@ function loadStyleString(code){
 	var style = document.createElement("style");
 	style.type = "text/css";
 	try{
-		style.appendChild(document.createTextNode(css));
+		style.appendChild(document.createTextNode(code));
 	}catch(ex){
-		style.styleSheet.cssText = css;
+		style.styleSheet.cssText = code;
 	}
 
 	var head = document.getElementsByTagName("head")[0];
