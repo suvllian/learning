@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<meta http-equiv="x-ua-compatible" content="IE=Edge" />
+	<title>Learning CSS3</title>
+	<style type="text/css">
+		.border{
+			height: 300px;
+			width: 300px;
+			margin:100px auto;
+			background-color: #b3d6d6;
+			border: 2px solid #aaa;
+			
+			transition: all 2s ease;
+		}
+
+		.border:hover{
+			height: 400px;
+			width: 400px;
+		}
+
+		.trans{
+			height: 300px;
+			width: 300px;
+			margin:100px auto;
+			background-color: #b3d6d6;
+			border: 2px solid #aaa;
+			transition: all 2s ease;
+
+			/*旋转*/
+			/*transform:rotate(30deg);*/
+
+			/*2D转换*/
+			/*transform:translate(20px,10px);*/
+
+			
+		}
+
+		.trans:hover{
+			/*3D转换*/
+			/*transform:translate3d(0,-10px,20px);*/
+
+			/*转换 只是X轴的值*/
+			/*transform:translateX(50px);*/
+			/*Y轴*/
+			/*transform:translateY(50px);*/
+
+			/*缩放旋转*/
+			/*transform:scale(2,0.5);*/
+
+			/*3D缩放*/
+			/*transform:scale3d(0.8,0.8,1.2);*/
+
+			transform:skew(20deg,20deg);
+			
+		}
+	</style>
+</head>
+<body>
+<div class="border">
+	
+</div>
+
+<div class="trans">
+	111
+</div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+@import "compass/css3";
+@charset "utf-8";
+
+$bgcolor:#333;
+
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+}
+
+body{
+	background-color:$bgcolor;
+}
+
+a{
+	text-decoration:none;
+	color:#aaa;
+}
+
+header{
+	height:10em;
+	text-align:center;
+	margin:3.6em 0;
+
+	h1{
+		font-size:52px;
+		font-weight:600;
+		color:#fff;
+		margin-bottom:0;
+	}
+
+	h3{
+		font-size:32px;
+		font-weight:400;
+		color:#aaa;
+		margin-top:0;
+	}
+}
+
+.main{
+	width:80%;
+	height:auto;
+	margin:0 auto;
+
+	//Commen Style
+	h2{
+		padding-left:10px;
+		color:#fff;
+	}
+
+	figure {
+	    background: #3085a3 none repeat scroll 0 0;
+	    cursor: pointer;
+	    float: left;
+	    height: auto;
+	    margin: 10px 1%;
+	    max-height: 360px;
+	    max-width: 480px;
+	    min-width: 320px;
+	    overflow: hidden;
+	    position: relative;
+	    text-align: center;
+	    width: 48%;  
+
+	    img {
+			position: relative;
+			display: block;
+			min-height: 100%;
+			max-width: 100%;
+			opacity: 0.8;
+		}
+
+	}
+
+	figcaption {
+	    backface-visibility: hidden;
+	    color: #fff;
+	    font-size: 1.25em;
+	    text-align:left;
+	    padding: 2em;
+	    text-transform: uppercase;
+	    position:absolute;
+	    top:0;
+	    left:0;	
+	    width:100%;
+	    height:100%;
+
+	    h2 {
+			position: relative;
+			padding: 0.5em 0;
+			font-weight:400;
+			color:#fff;
+
+			span{
+				font-weight:600;
+			}
+		}
+	}
+
+	.grid {
+	    clear: both;
+	    list-style: outside none none;
+	    margin: 0 auto;
+	    max-width: 1000px;
+	    padding: 1em 0 4em;
+	    position: relative;
+	    text-align: center;
+	}
+}
+
+@mixin transform-time($imgtime,$ptime){
+	img {
+		@include transition(opacity $imgtime, transform $imgtime);
+		@include backface-visibility(hidden);
+	}
+
+	p,h2 {
+		@include transition(opacity $ptime, transform $ptime);
+	}
+}
+
+/*-----------------*/
+/******* First *******/
+/*文字从左边出现效果*/
+/*-----------------*/
+figure.effect-first {
+	background: #2f3238;
+
+	@include transform-time(1s,0.35s);
+
+	p {
+		display: inline-block;
+		margin: 0 0 0.25em;
+		padding: 0.4em 1em;
+		background: rgba(255,255,255,0.9);
+		color: #2f3238;
+		text-transform: none;
+		font-weight: 500;
+		font-size: 75%;
+
+		@include transform(translate3d(-360px,0,0));
+
+		&:first-child {
+			@include transition-delay(0.15s);
+		}
+
+		&:nth-of-type(2) {
+			@include transition-delay(0.1s);
+		}
+
+		&:nth-of-type(3) {
+			@include transition-delay(0.1s);
+		}
+	}
+
+
+	&:hover {
+		p{
+			&:first-child {
+				@include transition-delay(0s);
+			}
+
+			&:nth-of-type(2) {
+				@include transition-delay(0.05s);
+			}
+
+			&:nth-of-type(3) {
+				@include transition-delay(0.1s);
+			}
+		}
+
+		img{
+			opacity: 0.8;
+			@include transform(scale3d(1.1,1.1,1));
+		}
+
+		p {
+			opacity: 1;
+			@include transform(translate3d(0,0,0));
+		}
+	}
+}
+
+
+/*-----------------*/
+/***** Second *****/
+/*文字从下面出现效果*/
+/*-----------------*/
+
+figure.effect-second {
+	background:#b3d9d9;
+
+	@include transform-time(0.35s,0.35s);
+
+	figcaption{
+		p,h2{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 30px;
+		}
+
+		p{
+			font-size:18px;
+			color:#fff;
+			opacity:0;
+			@include transform(translate3d(0,50px,0));
+		}
+	}
+
+	&:hover {
+		img{
+			@include transform(translate3d(0,-72px,0));
+		}
+
+		h2{
+			@include transform(translate3d(0,-72px,0));
+		}
+
+		p{
+			opacity:1;
+			@include transform(translate3d(0,10px,0));
+		}
+	}
+}
+
+/*-----------------*/
+/***** Third *****/
+/*出现边框效果*/
+/*-----------------*/
+
+figure.effect-third {
+	background: #fff;
+
+	@include transform-time(0.62s,0.62s);
+
+	figcaption{
+		p{
+			font-size:14px;
+			color:#fff;
+			opacity:0;
+			@include transform(translateY(-32px));
+		}
+
+		p,h2{
+			text-align:center;
+		}
+	}
+
+	&:hover {
+		img{
+			@include transform(scale3d(0.95,0.95,1));
+		}
+
+		h2{
+			@include transform(translateY(-20px));
+		}
+
+		p{
+			opacity:1;
+		}
+		
+	}
+}

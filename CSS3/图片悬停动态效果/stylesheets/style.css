@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* line 6, ../sass/style.scss */
+* { padding: 0; margin: 0; box-sizing: border-box; }
+
+/* line 12, ../sass/style.scss */
+body { background-color: #333; }
+
+/* line 16, ../sass/style.scss */
+a { text-decoration: none; color: #aaa; }
+
+/* line 21, ../sass/style.scss */
+header { height: 10em; text-align: center; margin: 3.6em 0; }
+/* line 26, ../sass/style.scss */
+header h1 { font-size: 52px; font-weight: 600; color: #fff; margin-bottom: 0; }
+/* line 33, ../sass/style.scss */
+header h3 { font-size: 32px; font-weight: 400; color: #aaa; margin-top: 0; }
+
+/* line 41, ../sass/style.scss */
+.main { width: 80%; height: auto; margin: 0 auto; }
+/* line 47, ../sass/style.scss */
+.main h2 { padding-left: 10px; color: #fff; }
+/* line 52, ../sass/style.scss */
+.main figure { background: #3085a3 none repeat scroll 0 0; cursor: pointer; float: left; height: auto; margin: 10px 1%; max-height: 360px; max-width: 480px; min-width: 320px; overflow: hidden; position: relative; text-align: center; width: 48%; }
+/* line 66, ../sass/style.scss */
+.main figure img { position: relative; display: block; min-height: 100%; max-width: 100%; opacity: 0.8; }
+/* line 76, ../sass/style.scss */
+.main figcaption { backface-visibility: hidden; color: #fff; font-size: 1.25em; text-align: left; padding: 2em; text-transform: uppercase; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+/* line 89, ../sass/style.scss */
+.main figcaption h2 { position: relative; padding: 0.5em 0; font-weight: 400; color: #fff; }
+/* line 95, ../sass/style.scss */
+.main figcaption h2 span { font-weight: 600; }
+/* line 101, ../sass/style.scss */
+.main .grid { clear: both; list-style: outside none none; margin: 0 auto; max-width: 1000px; padding: 1em 0 4em; position: relative; text-align: center; }
+
+/*-----------------*/
+/******* First *******/
+/*文字从左边出现效果*/
+/*-----------------*/
+/* line 127, ../sass/style.scss */
+figure.effect-first { background: #2f3238; }
+/* line 113, ../sass/style.scss */
+figure.effect-first img { -moz-transition: opacity 1s, -moz-transform 1s; -o-transition: opacity 1s, -o-transform 1s; -webkit-transition: opacity 1s, -webkit-transform 1s; transition: opacity 1s, transform 1s; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+/* line 118, ../sass/style.scss */
+figure.effect-first p, figure.effect-first h2 { -moz-transition: opacity 0.35s, -moz-transform 0.35s; -o-transition: opacity 0.35s, -o-transform 0.35s; -webkit-transition: opacity 0.35s, -webkit-transform 0.35s; transition: opacity 0.35s, transform 0.35s; }
+/* line 132, ../sass/style.scss */
+figure.effect-first p { display: inline-block; margin: 0 0 0.25em; padding: 0.4em 1em; background: rgba(255, 255, 255, 0.9); color: #2f3238; text-transform: none; font-weight: 500; font-size: 75%; -moz-transform: translate3d(-360px, 0, 0); -ms-transform: translate3d(-360px, 0, 0); -webkit-transform: translate3d(-360px, 0, 0); transform: translate3d(-360px, 0, 0); }
+/* line 144, ../sass/style.scss */
+figure.effect-first p:first-child { -moz-transition-delay: 0.15s; -o-transition-delay: 0.15s; -webkit-transition-delay: 0.15s; transition-delay: 0.15s; }
+/* line 148, ../sass/style.scss */
+figure.effect-first p:nth-of-type(2) { -moz-transition-delay: 0.1s; -o-transition-delay: 0.1s; -webkit-transition-delay: 0.1s; transition-delay: 0.1s; }
+/* line 152, ../sass/style.scss */
+figure.effect-first p:nth-of-type(3) { -moz-transition-delay: 0.1s; -o-transition-delay: 0.1s; -webkit-transition-delay: 0.1s; transition-delay: 0.1s; }
+/* line 160, ../sass/style.scss */
+figure.effect-first:hover p:first-child { -moz-transition-delay: 0s; -o-transition-delay: 0s; -webkit-transition-delay: 0s; transition-delay: 0s; }
+/* line 164, ../sass/style.scss */
+figure.effect-first:hover p:nth-of-type(2) { -moz-transition-delay: 0.05s; -o-transition-delay: 0.05s; -webkit-transition-delay: 0.05s; transition-delay: 0.05s; }
+/* line 168, ../sass/style.scss */
+figure.effect-first:hover p:nth-of-type(3) { -moz-transition-delay: 0.1s; -o-transition-delay: 0.1s; -webkit-transition-delay: 0.1s; transition-delay: 0.1s; }
+/* line 173, ../sass/style.scss */
+figure.effect-first:hover img { opacity: 0.8; -moz-transform: scale3d(1.1, 1.1, 1); -ms-transform: scale3d(1.1, 1.1, 1); -webkit-transform: scale3d(1.1, 1.1, 1); transform: scale3d(1.1, 1.1, 1); }
+/* line 178, ../sass/style.scss */
+figure.effect-first:hover p { opacity: 1; -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+
+/*-----------------*/
+/***** Second *****/
+/*文字从下面出现效果*/
+/*-----------------*/
+/* line 191, ../sass/style.scss */
+figure.effect-second { background: #b3d9d9; }
+/* line 113, ../sass/style.scss */
+figure.effect-second img { -moz-transition: opacity 0.35s, -moz-transform 0.35s; -o-transition: opacity 0.35s, -o-transform 0.35s; -webkit-transition: opacity 0.35s, -webkit-transform 0.35s; transition: opacity 0.35s, transform 0.35s; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+/* line 118, ../sass/style.scss */
+figure.effect-second p, figure.effect-second h2 { -moz-transition: opacity 0.35s, -moz-transform 0.35s; -o-transition: opacity 0.35s, -o-transform 0.35s; -webkit-transition: opacity 0.35s, -webkit-transform 0.35s; transition: opacity 0.35s, transform 0.35s; }
+/* line 197, ../sass/style.scss */
+figure.effect-second figcaption p, figure.effect-second figcaption h2 { position: absolute; bottom: 0; left: 0; padding: 30px; }
+/* line 204, ../sass/style.scss */
+figure.effect-second figcaption p { font-size: 18px; color: #fff; opacity: 0; -moz-transform: translate3d(0, 50px, 0); -ms-transform: translate3d(0, 50px, 0); -webkit-transform: translate3d(0, 50px, 0); transform: translate3d(0, 50px, 0); }
+/* line 213, ../sass/style.scss */
+figure.effect-second:hover img { -moz-transform: translate3d(0, -72px, 0); -ms-transform: translate3d(0, -72px, 0); -webkit-transform: translate3d(0, -72px, 0); transform: translate3d(0, -72px, 0); }
+/* line 217, ../sass/style.scss */
+figure.effect-second:hover h2 { -moz-transform: translate3d(0, -72px, 0); -ms-transform: translate3d(0, -72px, 0); -webkit-transform: translate3d(0, -72px, 0); transform: translate3d(0, -72px, 0); }
+/* line 221, ../sass/style.scss */
+figure.effect-second:hover p { opacity: 1; -moz-transform: translate3d(0, 10px, 0); -ms-transform: translate3d(0, 10px, 0); -webkit-transform: translate3d(0, 10px, 0); transform: translate3d(0, 10px, 0); }
+
+/*-----------------*/
+/***** Third *****/
+/*出现边框效果*/
+/*-----------------*/
+/* line 233, ../sass/style.scss */
+figure.effect-third { background: #fff; }
+/* line 113, ../sass/style.scss */
+figure.effect-third img { -moz-transition: opacity 0.62s, -moz-transform 0.62s; -o-transition: opacity 0.62s, -o-transform 0.62s; -webkit-transition: opacity 0.62s, -webkit-transform 0.62s; transition: opacity 0.62s, transform 0.62s; -moz-backface-visibility: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+/* line 118, ../sass/style.scss */
+figure.effect-third p, figure.effect-third h2 { -moz-transition: opacity 0.62s, -moz-transform 0.62s; -o-transition: opacity 0.62s, -o-transform 0.62s; -webkit-transition: opacity 0.62s, -webkit-transform 0.62s; transition: opacity 0.62s, transform 0.62s; }
+/* line 239, ../sass/style.scss */
+figure.effect-third figcaption p { font-size: 14px; color: #fff; opacity: 0; -moz-transform: translateY(-32px); -ms-transform: translateY(-32px); -webkit-transform: translateY(-32px); transform: translateY(-32px); }
+/* line 246, ../sass/style.scss */
+figure.effect-third figcaption p, figure.effect-third figcaption h2 { text-align: center; }
+/* line 252, ../sass/style.scss */
+figure.effect-third:hover img { -moz-transform: scale3d(0.95, 0.95, 1); -ms-transform: scale3d(0.95, 0.95, 1); -webkit-transform: scale3d(0.95, 0.95, 1); transform: scale3d(0.95, 0.95, 1); }
+/* line 256, ../sass/style.scss */
+figure.effect-third:hover h2 { -moz-transform: translateY(-20px); -ms-transform: translateY(-20px); -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+/* line 260, ../sass/style.scss */
+figure.effect-third:hover p { opacity: 1; }
