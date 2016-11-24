@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>protoType</title>
+</head>
+<body>
+<script type="text/javascript">
+	function Person(){
+
+	}
+
+	Person.prototype.name = "suvllian";
+	Person.prototype.age  = 29;
+	Person.prototype.job  = "Software Engineer";
+
+	var person1 = new Person();
+	console.log(person1.name);
+
+	var person2 = new Person();
+	console.log(person2.name);
+
+	var pConstructor = Person.prototype.constructor;
+	console.log(pConstructor);
+
+	console.log(person1.__proto__);
+
+	Object.getPrototypeOf(person1).name = 'Tom';
+	console.log(Object.getPrototypeOf(person1));
+	console.log(person2.name);
+
+	person1.name = 'mary';
+	console.log(person1.name);
+	delete person1.name;
+	console.log(person1.name);
+
+	console.log(person1.hasOwnProperty("name"));
+
+	console.log("name" in person1);
+
+	function hasPrototypeProperty(object,name){
+		return !object.hasOwnProperty(name)&&(name in object);
+	}
+	console.log(hasPrototypeProperty(person1,name));
+
+	for(var prop in person1){
+		if (prop==="age") {
+			console.log("Found toString");
+		}
+	}
+
+	function Animal(){
+
+	}
+
+	Animal.prototype.size = 100;
+	Animal.prototype.name = 'monkey';
+
+	var animal1 = new Animal();
+
+	var arr = null;
+	arr = Object.keys(animal1);
+	console.log(arr);
+
+	arr = Object.getOwnPropertyNames(animal1);
+	console.log(arr.length);
+
+	function Computer(){}
+
+	Computer.prototype ={
+		constructor:Computer,
+		name:"Hasee",
+		value:100,
+		size:10
+	} ;
+	var computer1 = new Computer();
+	console.log(computer1.name);
+	console.log(computer1.__proto__);
+	arr = Object.keys(computer1);
+	console.log(arr);
+
+	Object.defineProperty(Computer.prototype,"constructor",{
+		enumerable:false,
+		value:Computer
+	});
+
+</script>
+</body>
+</html>

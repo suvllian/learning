@@ -44,57 +44,57 @@ define(function(require,exports,module){
 
 		handleFiles:function(){
 			var fileList = this.files[0];
-                  var oFReader = new FileReader();
-                  //读取文件内容
-                  oFReader.readAsDataURL(fileList);
+              var oFReader = new FileReader();
+              //读取文件内容
+              oFReader.readAsDataURL(fileList);
 
-                  oFReader.onload = function(event){
-                        //把预览图片URL传给函数
-                        postFile.paintImage(event.target.result);
-                  };
+              oFReader.onload = function(event){
+                    //把预览图片URL传给函数
+                    postFile.paintImage(event.target.result);
+              };
 		},
 
-            paintImage:function(url){
-                  var t = this;
+        paintImage:function(url){
+              var t = this;
 
-                  var createCanvas = t.getImage.getContext("2d");
-                  var img = new Image();
-                  img.src = url;
+              var createCanvas = t.getImage.getContext("2d");
+              var img = new Image();
+              img.src = url;
 
-                  img.onload = function(){
-                      //等比例缩放图片(如果图片宽高都比容器小，则绘制的图片宽高 = 原图片的宽高。)
-                      //如果图片的宽度或者高度比容器大，则宽度或者高度 = 容器的宽度或者高度，另一高度或者宽度则等比例缩放
+              img.onload = function(){
+                  //等比例缩放图片(如果图片宽高都比容器小，则绘制的图片宽高 = 原图片的宽高。)
+                  //如果图片的宽度或者高度比容器大，则宽度或者高度 = 容器的宽度或者高度，另一高度或者宽度则等比例缩放
 
-                      //t.bgPagePos.width：绘制后图片的宽度;
-                      //t.bgPagePos.height：绘制后图片的高度;
-                      //t.bgPagePos.x：绘制后图片的X轴;
-                      //t.bgPagePos.y：绘制后图片的Y轴
-                      if(img.width<t.regional.offsetWidth&&img.height<t.regional.offsetWidth){
-                          t.bgPagePos.width = img.width;
-                          t.bgPagePos.height = img.height;
-                      } else {
-                          var pWidth = img.width / (img.height / t.regional.offsetHeight);
-                          var pHeight = img.height / (img.width / t.regional.offsetWidth);
+                  //t.bgPagePos.width：绘制后图片的宽度;
+                  //t.bgPagePos.height：绘制后图片的高度;
+                  //t.bgPagePos.x：绘制后图片的X轴;
+                  //t.bgPagePos.y：绘制后图片的Y轴
+                  if(img.width<t.regional.offsetWidth&&img.height<t.regional.offsetWidth){
+                      t.bgPagePos.width = img.width;
+                      t.bgPagePos.height = img.height;
+                  } else {
+                      var pWidth = img.width / (img.height / t.regional.offsetHeight);
+                      var pHeight = img.height / (img.width / t.regional.offsetWidth);
 
-                          t.bgPagePos.width = img.width > img.height ? t.regional.offsetWidth : pWidth;
-                          t.bgPagePos.height = img.height > img.width ? t.regional.offsetHeight : pHeight;
-                      }
-
-                      //图片的坐标
-                      t.bgPagePos.x = (t.regional.offsetWidth - t.bgPagePos.width) / 2 + 'px';
-                      t.bgPagePos.y = (t.regional.offsetHeight - t.bgPagePos.height) / 2 + 'px';
-                      
-                      t.getImage.height = t.bgPagePos.height;
-                      t.getImage.width = t.bgPagePos.width;
-                      t.getImage.style.left = t.bgPagePos.x;
-                      t.getImage.style.top = t.bgPagePos.y;
-
-                      createCanvas.drawImage(img,0,0,t.bgPagePos.width,t.bgPagePos.height);//没用直接插入背景图片而用canvas绘制图片，是为了调整所需框内图片的大小
-                      
-                      t.imgUrl = t.getImage.toDataURL();//储存canvas绘制的图片地址
-
-                      t.clipImg();
+                      t.bgPagePos.width = img.width > img.height ? t.regional.offsetWidth : pWidth;
+                      t.bgPagePos.height = img.height > img.width ? t.regional.offsetHeight : pHeight;
                   }
+
+                  //图片的坐标
+                  t.bgPagePos.x = (t.regional.offsetWidth - t.bgPagePos.width) / 2 + 'px';
+                  t.bgPagePos.y = (t.regional.offsetHeight - t.bgPagePos.height) / 2 + 'px';
+                  
+                  t.getImage.height = t.bgPagePos.height;
+                  t.getImage.width = t.bgPagePos.width;
+                  t.getImage.style.left = t.bgPagePos.x;
+                  t.getImage.style.top = t.bgPagePos.y;
+
+                  createCanvas.drawImage(img,0,0,t.bgPagePos.width,t.bgPagePos.height);//没用直接插入背景图片而用canvas绘制图片，是为了调整所需框内图片的大小
+                  
+                  t.imgUrl = t.getImage.toDataURL();//储存canvas绘制的图片地址
+
+                  t.clipImg();
+              }
             },
 
             clipImg:function(){
