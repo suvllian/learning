@@ -10,22 +10,22 @@ class Client
 
 	public function __construct()
 	{
-		if (isset($_POST['send'])) {
-			$this->queryNow = $_POST['send'];
+		if (isset($_GET['deal'])) {
+			$this->queryNow = $_GET['deal'];
 		}
-		$q1 = new Q1();
-		$q2 = new Q2();
-		$q3 = new Q3();
-		$q4 = new Q4();
-		$q5 = new Q5();
+
+		$data     = new GetData();
+		$visitors = new GetVisitors();
+		$vote     = new DealVote();
+
 		//设置后继
-		$q1->setSuccessor($q2);
-		$q2->setSuccessor($q3);
-		$q3->setSuccessor($q4);
-		$q4->setSuccessor($q5);		
+		$data->setSuccessor($visitors);
+		$visitors->setSuccessor($vote);
+
 		//生成处理器加载请求
 		$LoadUp = new Request($this->queryNow);
-		$q1->handleRequest($LoadUp);
+		$data->handleRequest($LoadUp);
 	}
 }
+
 $MakeRequest = new Client();

@@ -4,7 +4,8 @@
 * 数据结构的JavaScript实现  
   1.链表
 * JavaScript函数式编程
-  1.通用函数封装
+  1.通用函数封装  
+* Javascript设计模式
 
 ###二、HTML5
 >* HTML5实例  
