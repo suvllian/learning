@@ -1,3 +1,4 @@
+
 // 单向链表
 var List = function(){
 
@@ -167,13 +168,90 @@ var List = function(){
 	}
 }
 
-var cities = new List();
-cities.append("Jack");
-cities.append("Tom");
-cities.insertAfter("Mary","Jack");
-cities.insertByPosition(2,"Song");
-cities.removeByPos(2);
-cities.display();
-cities.getSize();
-console.log(cities.getDataByPos(1));
-console.log(cities.toString());
+
+function HashTable(){
+	var table = [];
+
+	// 散列函数
+	var hashCode = function(key){
+		var hash = 0;
+		for(var i=0; i < key.length; i++){
+			hash += key.charCodeAt(i);
+		}
+		return hash % 37;
+	}
+
+
+	var ValuePair = function(key,value){
+		this.key = key;
+		this.value = value;
+
+		this.toString = function(){
+			return '[' + this.key + ' - ' + this.value + ']';
+		}
+	}
+
+	this.put = function(key,value){
+		var position = hashCode(key);
+
+		if (table[position] == undefined){
+			table[position] = new List();
+		}
+		table[position].append(new ValuePair(key,value));
+	}
+
+	this.get = function(key){
+		var position = hashCode(key);
+
+		if(table[position] !== undefined){
+			var current = table[position].getHead();
+
+			while(current.next){
+				if (current.value.key === key){
+					return current.value.value;
+				}
+				current = current.next;
+			}
+
+			if (current.value.key === key){
+				return current.value.value;
+			}
+		}
+		return undefined;
+	}
+
+	this.remove = function(key){
+		var position = hashCode(key);
+
+		if(table[position] !== undefined){
+			var current = table[position].getHead();
+
+			while(current.next){
+				if(current.value.key === key){
+					table[position].remove(current.value);
+					if(table[position].isEmpty()){
+						table[position] = undefined;
+					}
+					return true;
+				}
+				current = current.next;
+			}
+
+			if(current.value.key === key){
+				table[position].remove(current.value);
+				if(table[position].isEmpty()){
+					table[position] = undefined;
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+}
+
+var table = new HashTable();
+table.put("Tyrion","111");
+table.put("Aaron","121");
+console.log(table.get("Tyrion"));
+console.log(table.remove("Aaron"));
+console.log(table.get("Aaron"));
