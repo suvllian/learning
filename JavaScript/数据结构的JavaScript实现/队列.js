@@ -2,7 +2,7 @@ function Queue(){
 	var item = [];
 
 	// 添加新项
-	this.push = function(element){
+	this.enqueue = function(element){
 		item.push(element);
 	}
 
