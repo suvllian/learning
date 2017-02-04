@@ -1,0 +1,1 @@
+var mary = "jack";
