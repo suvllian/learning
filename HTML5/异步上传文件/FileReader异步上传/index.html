@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FileReader文件上传</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<p>文件上传</p>
+<input type="file" name="file" id="file" value="浏览"/>
+<span onclick="UpladFile()" class="mybtn">上传</span>
+
+<script type="text/javascript">
+    function UpladFile(){
+        var fileObj = document.getElementById("file").files[0];
+        var apiURL = 'http://127.0.0.1/upload.php';
+        var fileReader = new FileReader();
+        fileReader.readAsDataURL(fileObj);
+        fileReader.onload = function(e){
+            var data = e.target.result;
+            postData = "img=" + data;
+            var xhr = new XMLHttpRequest();
+        　　xhr.open('POST', apiURL);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        　　xhr.onload = function () {
+        　　　　if (xhr.status === 200) {
+        　　　　　　console.log('上传成功');
+        　　　　} else {
+        　　　　　　console.log('出错了');
+        　　　　}
+        　　};
+            xhr.send(postData);
+        }　
+    }
+</script>
+</body>
+</html>

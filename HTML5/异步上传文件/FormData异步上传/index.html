@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FormData异步上传图片</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<input type="file" name="file" id="file" value="浏览"/>
+	<span onclick="UpladFile()" class="mybtn">上传</span>
+
+	<script type="text/javascript">
+		function UpladFile(){
+		    var fileObj = document.getElementById("file").files[0];
+		    var apiURL = 'http://127.0.0.1/upload.php';
+		    var formData = new FormData();
+		    formData.append("myfile", fileObj);
+			  formData.append("name", "Tom");
+		    var xhr = new XMLHttpRequest();
+		　　xhr.open('POST', apiURL);
+		　　xhr.onload = function () {
+		　　　　if (xhr.status === 200) {
+		　　　　　　console.log('上传成功');
+		　　　　} else {
+		　　　　　　console.log('出错了');
+		　　　　}
+		　　};
+		　　xhr.send(formData);
+		}
+	</script>
+</body>
+</html>
