@@ -11,7 +11,7 @@ function Dictionary(){
 		items[key] = value;
 	}
 
-	// 输出集合中的所有元素
+	// 输出字典中的所有元素
 	this.display = function(){
 		for(var prop in items){
 			if(items.hasOwnProperty(prop)){
