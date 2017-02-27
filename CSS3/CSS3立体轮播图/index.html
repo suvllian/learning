@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		.box{
+			perspective: 3000px;
+			perspective-origin: 50% 50%;
+			-webkit-perspective: 3000px;
+			-webkit-perspective-origin: 50% 50%;
+			width: 100%;
+			overflow: hidden;
+			zoom: 1;
+		}
+
+		.text{
+			transform-style: preserve-3d;
+			position: relative;
+		    width: 640px;
+		    height: 600px;
+		    margin:0 auto;
+		    transition: transform 2s;
+		    animation: photoRotate 16s ease-in-out infinite 2s;
+		}
+
+		img{
+			height: 360px;
+			width: 500px;
+			overflow: hidden;
+			position: absolute;
+			bottom: 0;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            transition: transform 2s;
+		}
+
+		img:nth-child(1) { transform: rotateY(   0deg ) translateZ(1500px); }
+		img:nth-child(2) { transform: rotateY(  45deg ) translateZ(1500px); }
+		img:nth-child(3) { transform: rotateY(  90deg ) translateZ(1500px); }
+		img:nth-child(4) { transform: rotateY( 135deg ) translateZ(1500px); }
+		img:nth-child(5) { transform: rotateY( 180deg ) translateZ(1500px); }
+		img:nth-child(6) { transform: rotateY( 225deg ) translateZ(1500px); }
+		img:nth-child(7) { transform: rotateY( 270deg ) translateZ(1500px); }
+		img:nth-child(8) { transform: rotateY( 315deg ) translateZ(1500px); }
+
+		@keyframes photoRotate {
+			0% {
+				-webkit-transform: rotateY(0deg);
+				transform: rotateY(0deg);
+			}
+			12.5% {
+				-webkit-transform: rotateY(45deg);
+				transform: rotateY(45deg);
+			}
+			25% {
+				-webkit-transform: rotateY(90deg);
+				transform: rotateY(90deg);
+			}
+			37.5% {
+				-webkit-transform: rotateY(135deg);
+				transform: rotateY(135deg);
+			}
+			50% {
+				-webkit-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+			}
+			62.5% {
+				-webkit-transform: rotateY(225deg);
+				transform: rotateY(225deg);
+			}
+			75% {
+				-webkit-transform: rotateY(270deg);
+				transform: rotateY(270deg);
+			}
+			87.5% {
+				-webkit-transform: rotateY(315deg);
+				transform: rotateY(315deg);
+			}
+			100% {
+				-webkit-transform: rotateY(360deg);
+				transform: rotateY(360deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+<div class="box">
+	<div class="text">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+		<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+	</div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
