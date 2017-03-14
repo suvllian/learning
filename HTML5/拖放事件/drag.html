@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag事件</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		.parent {
+		     width : 500px;
+		     height : 500px;
+		     background-color : #e0e0e0;       
+		}
+
+		.parent:before {
+		     content : " ";
+		     display : table;
+		}
+
+		
+		.child {
+		     width : 200px;
+		     height : 200px;
+		     background-color : #eee;
+		     margin-top : 50px;
+		}
+
+		.box{
+			width: 500px;
+			height: 500px;
+			background-color: #b3d9d9;
+		}
+	</style>
+</head>
+<body>
+<div class="parent">
+    <div class="child" draggable="true">
+    	<p>拖我</p>
+    </div> 
+</div>
+
+<div class="box">
+	
+</div>
+
+<script type="text/javascript">
+	var dragArea = document.getElementsByClassName("child")[0];
+	var target = document.getElementsByClassName("box")[0];
+
+	dragArea.addEventListener("dragstart", function(event){
+		event.dataTransfer.setData("text","hahah");
+		event.dataTransfer.dropEffect = "copy";
+		event.dataTransfer.effectAllowed = "copy";
+		console.log("start");
+	});
+
+    // 火狐
+	dragArea.ondragstart = function(event){
+		event.dataTransfer.setData("text","drag事件");
+		event.dataTransfer.dropEffect = "copy";
+		event.dataTransfer.effectAllowed = "copy";
+		console.log("start");
+	}
+
+	dragArea.addEventListener("drag", function(event){
+		console.log("drag");
+	});
+
+	dragArea.addEventListener("dragend", function(event){
+		event.preventDefault();
+		console.log("end");
+	});
+
+	target.addEventListener("dragenter", function(event){
+		event.preventDefault();
+		console.log(event.dataTransfer.dropEffect);
+		console.log("enter");
+	});
+
+	target.addEventListener("dragover", function(event){
+		event.preventDefault();
+		console.log("over");
+	});
+
+	target.addEventListener("dragleave", function(event){
+		event.preventDefault();
+		console.log("dragleave");
+	});
+
+	target.addEventListener("drop", function(event){
+		event.preventDefault();
+		var text = event.dataTransfer.getData("text");
+		console.log(text);
+		console.log("drop");
+	});
+</script>
+</body>
+</html>
