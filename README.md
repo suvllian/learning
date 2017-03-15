@@ -1,6 +1,5 @@
 # 学习过程中的代码总结  
 ## 一、JavaScript  
->* 基础知识
 ### 数据结构的JavaScript实现 
 ```  
 二叉树、优先队列、单线链表、双向链表、图、字典、散列表、栈、队列、集合。
@@ -23,7 +22,7 @@ gulp的使用、webpack基本配置、在gulp中使用babel
 ## 二、HTML5
 ### HTML5实例 
 ```  
-图片在线裁剪、本地图片上传预览 、Canvas掷骰子、Canvas时钟效果、Canvas画图板。  
+图片在线裁剪、本地图片上传预览 、Canvas掷骰子、Canvas时钟效果、Canvas画图板、Web Worker。  
 ``` 
 
 ## 三、CSS

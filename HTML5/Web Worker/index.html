@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>we worker</title>
+	<meta charset="utf-8">
+
+</head>
+<body>
+
+<script type="text/javascript">
+var worker = new Worker("./work.js");
+worker.postMessage("start!");
+
+worker.onmessage = function(e) {
+	var data = e.data;
+	console.log(data);
+}
+
+worker.onerror = function(e) {
+	console.log("ERROR: " + e.filename + " ( " + e.lineno + " ): " + e.message );
+}
+</script>
+</body>
+</html>
