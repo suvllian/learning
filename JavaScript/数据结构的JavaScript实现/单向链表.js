@@ -95,7 +95,7 @@ var List = function(){
 		}
 	}
 
-	// 三处删除指定项
+	// 删除指定项
 	this.remove = function(item){
 		var index = this.indexOf(item);
 		this.removeByPos(index);

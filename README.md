@@ -6,7 +6,7 @@
 ```
 ### 构建工具入门  
 ```  
-gulp的使用、webpack基本配置、在gulp中使用babel
+gulp的使用、webpack基本配置、在gulp中使用babel、webpack配置react开发环境
 ```
 ### 算法的javascript实现  
 ```  
