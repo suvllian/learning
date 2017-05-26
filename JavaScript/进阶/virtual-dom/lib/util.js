@@ -35,6 +35,11 @@ _.toArray = function(listLike) {
   return list
 }
 
+/* 给节点设置属性
+ * key是style，则设置style
+ * key是表单，则赋值
+ * 否则添加node属性
+ */
 _.setAttr = function(node, key, value) {
 	switch(key) {
 		case 'style':

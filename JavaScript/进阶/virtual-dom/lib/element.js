@@ -24,9 +24,9 @@ function Element(tagName, props, children) {
 	this.tagName = tagName
 	this.props = props || {}
 	this.children = children || []
-	this.key = props ? props.key : void 666
+	this.key = props ? props.key : undefined
 
-	var count = 0
+	let count = 0
 	_.each(this.children, (child, i) => {
 		if (child instanceof Element) {
 			count += child.count
@@ -40,8 +40,8 @@ function Element(tagName, props, children) {
 }
 
 Element.prototype.render = function() {
-	var el = document.createElement(this.tagName)
-	var props = this.props 
+	let el = document.createElement(this.tagName)
+	let props = this.props 
 	for (let propName in props) {
 		let propValue = props[propName]
 		_.setAttr(el, propName, propValue)

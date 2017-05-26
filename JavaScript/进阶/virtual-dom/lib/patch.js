@@ -6,30 +6,28 @@ var PROPS = 2
 var TEXT = 3
 
 function patch(node, patches) {
-	var walker = {index: 0}
+	let walker = {index: 0}
 	dfsWalk(node, walker, patches)
 }
 
 function dfsWalk(node, walker, patches) {
-	var currentPatches = patches[walker.index]
+	let currentPatches = patches[walker.index]
 
-	var len = node.childNodes ? node.childNodes.length : 0 
+	let len = node.childNodes ? node.childNodes.length : 0 
 	for (let i = 0; i < len; i++) {
-		var child = node.childNodes[i]
+		let child = node.childNodes[i]
 		walker.index++
 		dfsWalk(child, walker, patches)
 	}
 
-	if (currentPatches) {
-		applyPatches(node, currentPatches)
-	}
+	currentPatches ? applyPatches(node, currentPatches) : ''
 }
 
 function applyPatches(node, currentPatches) {
 	_.each(currentPatches, (currentPatch) => {
 		switch (currentPatch.type) {
 			case REPLACE:
-        var newNode = (typeof currentPatch.node === 'string') ? 
+        let newNode = (typeof currentPatch.node === 'string') ? 
           document.createTextNode(currentPatch.node) :
           currentPatch.node.render()
         node.parentNode.replaceChild(newNode, node)
@@ -54,7 +52,7 @@ function applyPatches(node, currentPatches) {
 
 function setProps(node, props) {
 	for (let key in props) {
-		if (props[key] === void 666) {
+		if (props[key] === undefined) {
 			node.removeAttribute(key)
 		} else {
 			let value = props[key]
