@@ -17,29 +17,11 @@ router.get('/addArticle', function(req, res, next) {
 
     connection.query(dailySql.insert, 
       [param.article_type, param.title, param.intro, param.imgUrl, param.link], function(err, result) {
-      if (result) {
-        result = {
-          code: 200, msg: '添加成功'
-        };
-      }
-
+      result = result ?  { code: 200, data: result } : null
       responseJSON(res, result);
       connection.release()
     });
   });
-});
-
-/* GET daily article list. */
-router.get('/clear', function(req, res, next) {
-  res.send({ title: 'clear' });
-});
-
-router.get('/protect', function(req, res, next) {
-  res.send({ title: 'clear' });
-});
-
-router.get('/prevent', function(req, res, next) {
-  res.send({ title: 'clear' });
 });
 
 module.exports = router;
