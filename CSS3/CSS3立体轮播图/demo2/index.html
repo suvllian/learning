@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>CSS3立体轮播</title>
 	<meta charset="utf-8">
 	<style type="text/css">
-		*{
+		* {
 			padding: 0;
 			margin: 0;
 		}
 
-		.stage{
+		.stage {
 			perspective: 1000px;
 			perspective-origin: 50% 50%;
 			-o-perspective: 1000px;
@@ -18,29 +19,29 @@
 			-webkit-perspective-origin: 50% 50%;
 		}
 
-		.container{
+		.container {
 			transform-style: preserve-3d;
 			-o-transform-style: preserve-3d;
-			-webkit-transform-style: preserve-3d;	
-				
+			-webkit-transform-style: preserve-3d;
+
 			width: 500px;
 			height: 300px;
 			margin: 0px auto;
 		}
 
-		.button{
+		.button {
 			width: 500px;
 			height: 100px;
 			margin: 200px auto;
 			text-align: center;
 		}
 
-		.button a{
-			color:#aaa;
+		.button a {
+			color: #aaa;
 			text-decoration: underline;
 		}
 
-		.img{
+		.img {
 			width: 500px;
 			height: 400px;
 			position: absolute;
@@ -52,31 +53,42 @@
 			-o-transform: rotateX(90deg);
 			-webkit-transform-origin: bottom;
 			-webkit-transform: rotateX(90deg);
-			
+
 			backface-visibility: hidden;
 			-o-backface-visibility: hidden;
 			-webkit-backface-visibility: hidden;
 		}
 
-		.img img{
+		.img img {
 			width: 100%;
 			height: 100%;
 		}
 
-		.img:first-child{
+		.img:first-child {
 			-webkit-transform: rotateX(0deg);
 			transform: rotateX(0deg);
-		}	
+		}
 	</style>
 </head>
+
 <body>
 	<div class="stage">
 		<div class="container">
-			<div class="img"><img src="http://gtms04.alicdn.com/tps/i4/TB1n1f3LXXXXXXNaXXXlzJZ8pXX-900-500.jpg" alt=""></div>
-			<div class="img"><img src="http://img.alicdn.com/tfs/TB1YyshJVXXXXaEXVXXXXXXXXXX-900-500.jpg" alt=""></div>
-			<div class="img"><img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt=""></div>
-			<div class="img"><img src="https://img.alicdn.com/tps/TB15XU_LpXXXXbEXpXXXXXXXXXX-900-500.png" alt=""></div>
-			<div class="img"><img src="http://gtms04.alicdn.com/tps/i4/TB17WhrKpXXXXXiXpXX2AXZ8pXX-900-500.png" alt=""></div>
+			<div class="img">
+				<img src="http://gtms04.alicdn.com/tps/i4/TB1n1f3LXXXXXXNaXXXlzJZ8pXX-900-500.jpg" alt="">
+			</div>
+			<div class="img">
+				<img src="http://img.alicdn.com/tfs/TB1YyshJVXXXXaEXVXXXXXXXXXX-900-500.jpg" alt="">
+			</div>
+			<div class="img">
+				<img src="http://img.alicdn.com/tps/TB11pxrKVXXXXaQXXXXXXXXXXXX-900-500.jpg" alt="">
+			</div>
+			<div class="img">
+				<img src="https://img.alicdn.com/tps/TB15XU_LpXXXXbEXpXXXXXXXXXX-900-500.png" alt="">
+			</div>
+			<div class="img">
+				<img src="http://gtms04.alicdn.com/tps/i4/TB17WhrKpXXXXXiXpXX2AXZ8pXX-900-500.png" alt="">
+			</div>
 		</div>
 	</div>
 
@@ -87,27 +99,28 @@
 	<script type="text/javascript">
 		var prev = document.getElementById("prev");
 		var next = document.getElementById("next");
-		var img  = document.getElementsByClassName("img");
+		var img = document.getElementsByClassName("img");
 		var index = 0;
 		var imgNumber = 5;
 
-		prev.addEventListener("click", function(event) {
+		prev.addEventListener("click", function (event) {
 			event.preventDefault();
-			if (index > 0 ){
+			if (index > 0) {
 				img[index].style.transform = 'rotateX(90deg)';
-				img[index-1].style.transform = 'rotateX(0deg)';
+				img[index - 1].style.transform = 'rotateX(0deg)';
 				index--;
 			}
 		})
 
-		next.addEventListener("click", function(event) {
+		next.addEventListener("click", function (event) {
 			event.preventDefault();
-			if (index < (imgNumber - 1) ){
+			if (index < (imgNumber - 1)) {
 				img[index].style.transform = 'rotateX(-90deg)';
-				img[index+1].style.transform = 'rotateX(0deg)';
+				img[index + 1].style.transform = 'rotateX(0deg)';
 				index++;
 			}
 		})
 	</script>
 </body>
+
 </html>
