@@ -43,6 +43,6 @@ gulp的使用、webpack基本配置、在gulp中使用babel、webpack配置react
    
 ## 五、Python
 ### 实例
-爬虫
+豆瓣纸书爬虫、查询豆瓣书籍爬虫
 
 ## 六、Node
