@@ -41,7 +41,7 @@ gulp的使用、webpack基本配置、在gulp中使用babel、webpack配置react
 分页操作类、gd图类。
 ``` 
    
-## 五、Python
+## 五、[Python](./Python/)
 ### 实例
 ```
 豆瓣纸书爬虫、查询豆瓣书籍爬虫
