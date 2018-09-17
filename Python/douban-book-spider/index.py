@@ -66,11 +66,8 @@ def write_data(file_data, file_name):
         f_csv.writerows(file_data)
 
 if __name__ == '__main__':
-    print "please enter the tag of the book you are searching for："
-    book_tag = raw_input()
-    print "please enter the quality："
-    book_number = raw_input()
+    book_tag = input("please enter the tag of the book you are searching for：")
+    book_number = raw_input("please enter the quality：")
     book_list = do_spider(book_tag, int(book_number))
 
     write_data(book_list, book_tag + '.csv')
-

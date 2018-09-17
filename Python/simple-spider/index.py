@@ -3,7 +3,7 @@ import unicodecsv;
 from bs4 import BeautifulSoup;
 
 def get_content(url, data = None):
-    response = urllib.urlopen('https://market.douban.com/book/')
+    response = urllib.urlopen(url)
     return response.read()
 
 def get_data(html_text):

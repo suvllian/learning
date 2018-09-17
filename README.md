@@ -42,7 +42,7 @@ gulp的使用、webpack基本配置、在gulp中使用babel、webpack配置react
 ## 五、[Python](./Python/)
 ### Python实例
 ```
-豆瓣纸书爬虫、查询豆瓣书籍爬虫
+豆瓣纸书爬虫、查询豆瓣书籍爬虫、简单图片爬取
 ```
 
 ## 六、[Node](./Node)
