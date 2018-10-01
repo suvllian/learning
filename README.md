@@ -1,4 +1,4 @@
-# 学习过程中的代码总结  
+# 学习过程中的Demo代码
 ## 一、[JavaScript](./JavaScript)  
 ### 数据结构的JavaScript实现 
 * 集合
