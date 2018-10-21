@@ -1,5 +1,23 @@
 # 学习过程中的Demo代码
-## 一、[JavaScript](./JavaScript)  
+
+# 前端
+
+## [HTML5](./HTML5)
+### HTML5实例 
+* 图片在线裁剪
+* 本地图片上传预览
+* Canvas掷骰子
+* Canvas时钟效果
+* Canvas画图板
+* Web Worker  
+
+## [CSS](./css3)
+### CSS3实例  
+* 图片悬停效果
+* Flex布局
+* CSS3立体轮播图 
+
+## [JavaScript](./JavaScript)  
 ### 数据结构的JavaScript实现 
 * 集合
 * 栈
@@ -26,24 +44,18 @@
 * 构造器模式
 * 模块模式
 
+## [React](./React)
+* react计数器
+* 简单的react组件
+* 虚拟DOM的简单实现
 
-## 二、[HTML5](./HTML5)
-### HTML5实例 
-* 图片在线裁剪
-* 本地图片上传预览
-* Canvas掷骰子
-* Canvas时钟效果
-* Canvas画图板
-* Web Worker  
+# 后端
 
-## 三、[CSS](./css3)
-### CSS3实例  
-* 图片悬停效果
-* Flex布局
-* CSS3立体轮播图 
+## [Node](./Node)
+### Node实例
+* Node操作数据库
 
-
-## 四、[PHP](./PHP)
+## [PHP](./PHP)
 ### 设计模式 
 * 状态设计模式
 * 装饰器模式
@@ -59,12 +71,8 @@
 * 分页操作类
 * gd图类
    
-## 五、[Python](./Python/)
+## [Python](./Python/)
 ### Python实例
 * 豆瓣纸书爬虫
 * 查询豆瓣书籍爬虫
 * 最简单的图片爬取爬虫
-
-## 六、[Node](./Node)
-### Node实例
-* Node操作数据库

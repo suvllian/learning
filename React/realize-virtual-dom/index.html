@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>虚拟DOM简单实现</title>
+</head>
+<style type="text/css">
+  *{margin: 0;padding:0;}
+
+  #list{
+    background-color: #eee;
+  }
+</style>
+<body>
+
+<script type="text/javascript">
+class Element{
+  constructor(tagName, props, children) {
+    this.tagName = tagName;
+    this.props = props;
+    this.children = children;
+  }
+
+  render() {
+    let el = document.createElement(this.tagName);
+    let props = this.props;
+
+    for (let propName in props) {
+      let propValue = props[propName];
+      el.setAttribute(propName, propValue);
+    }
+    let children = this.children || [];
+
+    children.forEach((child) => {
+      let childEl = (child instanceof Element) ?
+        child.render() : document.createTextNode(child);
+      el.appendChild(childEl);
+    })
+
+    return el;
+  }
+}
+
+let el = function (tagName, props, children) {
+  return new Element(tagName, props, children)
+}
+
+let ul = el("ul", {id:'list'}, [
+  el('li', {class: 'item'}, ['Item 1']),
+  el('li', {class: 'item'}, ['Item 2']),
+  el('li', {class: 'item'}, ['Item 3']),
+  el('li', {class: 'item'}, ['Item 4'])
+]);
+
+let div = el("div", {class: "content"}, [
+  el("p", {}, ["自己实现的虚拟DOM", "但是没有编译的过程"])
+])
+
+let ulRoot = ul.render();
+document.body.appendChild(ulRoot);
+
+let divRoot = div.render();
+document.body.appendChild(divRoot);
+</script> 
+</body>
+</html>
