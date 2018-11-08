@@ -1,0 +1,22 @@
+{
+  "name": "exceljs",
+  "version": "1.0.0",
+  "description": "exceljs test",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alibaba-inc.com/qingsong.sqs/frame-basic-usage"
+  },
+  "keywords": [
+    "export",
+    "excel"
+  ],
+  "author": "qingsong.sqs",
+  "license": "ISC",
+  "dependencies": {
+    "exceljs": "^1.6.3"
+  }
+}
