@@ -1,0 +1,21 @@
+{
+  "name": "static-simple",
+  "version": "1.0.0",
+  "description": "learning koa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "koajs"
+  ],
+  "author": "suvlliansong",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=7.6.0",
+    "npm": ">=3.0.0"
+  }
+}
