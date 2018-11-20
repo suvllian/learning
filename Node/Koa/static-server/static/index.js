@@ -3,7 +3,7 @@ const Koa = require('koa')
 const content = require('./utils/content')
 const mimes = require('./utils/mimes')
 
-const app = new Koa()
+const app = Koa()
 
 const staticRoot = './static'
 

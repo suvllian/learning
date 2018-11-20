@@ -11,7 +11,8 @@
   ],
   "author": "suvlliansong",
   "license": "MIT",
-  "dependencies": {
-    "koa": "^2.6.2"
+  "engines": {
+    "node": ">=7.6.0",
+    "npm": ">=3.0.0"
   }
 }
