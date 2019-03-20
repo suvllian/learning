@@ -15,7 +15,7 @@
 * Flex布局
 * CSS3立体轮播图 
 
-## [JavaScript](./javascript)  
+## [JavaScript](./JavaScript)  
 ### 数据结构的JavaScript实现 
 * 集合
 * 栈
@@ -42,7 +42,7 @@
 * 构造器模式
 * 模块模式
 
-### [进阶](./javascript/advance)
+### [进阶](./JavaScript/advance)
 * 实现virtual dom
 * WebAssembly Demo
 

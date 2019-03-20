@@ -33,7 +33,7 @@
     "stylesheet-loader": "^0.3.3",
     "watch-missing-node-modules-webpack-plugin": "0.0.1",
     "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5",
+    "webpack-dev-server": "3.x",
     "image-source-loader": "^0.3.3"
   }
 }
