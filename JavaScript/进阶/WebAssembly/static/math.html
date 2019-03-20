@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Assembly</title>
+</head>
+<body>
+  <script type="text/javascript" src="./loader.js"></script>
+
+  <script type="text/javascript">
+    loadWebAssembly('math.wasm')
+      .then(instance => {
+        console.info('instance: ---------------------- instance')
+        console.log({ instance })
+        console.info('export function:  ---------------------- ')
+        console.log({ exports: instance.exports })
+        console.info('memory:  ---------------------- ')
+        console.log({ exports: instance.exports.memory })
+
+        console.log(instance.exports._Z6squarei(2)); // 4
+        console.log(instance.exports._Z6divideii(16, 4)); // 4
+      }).catch(e => { console.error({ e }) })
+  </script>
+</body>
+</html>
