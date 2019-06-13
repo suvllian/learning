@@ -30,3 +30,43 @@ let voidValue: void = undefined
 function neverFun(): never {
   throw Error('异常')
 }
+
+let abundant: string | undefined | number 
+abundant = 1111
+
+
+// 接口
+// 1、简单用法
+function printLabel(labelledObj: { label: string }) {
+  console.log(labelledObj.label);
+}
+
+// 2、解构赋值
+function printLabel1({ label }: { label: string }) {
+  console.log(label);
+}
+
+// 3、接口定义
+interface LabelValue {
+  label: string,
+  value? : number,
+  readonly size: number
+}
+function printLabel2(labelledObj: LabelValue) {
+  console.log(labelledObj.label);
+}
+
+let myObj = { size: 10, label: "Size 10 Object" }
+printLabel(myObj)
+
+// function
+
+function tsFunction(val1: string, val2?: number) : string {
+  return val1 + val2
+}
+
+// 泛型
+function indentify<T>(arg: T): T {
+  return arg
+}
+
