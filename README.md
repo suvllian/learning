@@ -27,6 +27,9 @@
 * 字典
 * 图
 
+### [TypeScript](./TypeScript)
+* TypeScript的基本使用
+
 ### 构建工具入门  
 * gulp的使用
 * 在gulp中使用babel

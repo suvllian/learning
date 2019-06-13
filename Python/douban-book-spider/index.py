@@ -64,6 +64,7 @@ def write_data(file_data, file_name):
     with open(file_name, 'a') as f:
         f_csv = unicodecsv.writer(f, encoding='utf-8-sig')
         f_csv.writerows(file_data)
+    print 'output finished!'
 
 if __name__ == '__main__':
     book_tag = input("please enter the tag of the book you are searching for：")
@@ -71,3 +72,4 @@ if __name__ == '__main__':
     book_list = do_spider(book_tag, int(book_number))
 
     write_data(book_list, book_tag + '.csv')
+
