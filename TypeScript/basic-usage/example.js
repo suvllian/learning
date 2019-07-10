@@ -16,7 +16,9 @@ var result = {
 };
 var color = enum_1.Color.Blue;
 var anyValue = 123;
+// 不表示任何类型
 var voidValue = undefined;
+// never类型是任何类型的子类型，也可以赋值给任何类型
 function neverFun() {
     throw Error('异常');
 }

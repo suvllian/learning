@@ -25,8 +25,10 @@ let color: Color = Color.Blue
 
 let anyValue: any = 123
 
+// 不表示任何类型
 let voidValue: void = undefined
 
+// never类型是任何类型的子类型，也可以赋值给任何类型
 function neverFun(): never {
   throw Error('异常')
 }
