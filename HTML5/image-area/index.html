@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+	<title>Document</title>
+</head>
+<style>
+	.roadmap-img {
+		width: 100%;
+	}
+</style>
+
+<body>
+	<!-- 
+		<area shape="rect" coords="x1, y1,x2,y2" href=url>表示设定热点的形状为矩形，左上角顶点坐标为（X1,y1），右下角顶点坐标为（X2,y2）。
+		<area shape="circle" coords="x1, y1,r" href=url>表示设定热点的形状为圆形，圆心坐标为（X1,y1），半径为r。
+		<area shape="poly" coords="x1,y1,x2,y2 ......" href=url>表示设定热点的形状为多边形，各顶点坐标依次为（X1,y1）、（X2,y2）、（x3,y3） ......。
+	-->
+
+	<!-- img指热点图片，usemap指name为#planetmap的map. area标明具体的地方. coords标明坐标,href则是链接 -->
+	<img class="roadmap-img" src="./roadmap.png" usemap="#planetmap" alt="Planets" />
+	<map name="planetmap" id="planetmap">
+		<area shape="circle" coords="180,139,14" href="http://suvllian.com" alt="Venus" />
+		<area shape="circle" coords="129,161,10" alt="Mercury" />
+		<area id="area1" shape="rect" coords="10,0,110,260" alt="Sun" />
+	</map>
+</body>
+
+<script>
+	var area1 = document.getElementById('area1')
+
+	area1.onclick = function () {
+		console.log('clicked')
+	}
+</script>
+
+</html>

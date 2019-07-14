@@ -4,10 +4,11 @@
 ### HTML5实例 
 * 图片在线裁剪
 * 本地图片上传预览
+* 图片热区
 * Canvas掷骰子
 * Canvas时钟效果
 * Canvas画图板
-* Web Worker  
+* Web Worker
 
 ## [CSS](./css3)
 ### CSS3实例  
