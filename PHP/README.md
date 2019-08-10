@@ -5,3 +5,4 @@
 * [gd操作](./common-class/gd.class.php)
 
 ## 设计模式
+* [工厂模式](./design-patterns/factory)
