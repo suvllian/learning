@@ -5,4 +5,4 @@
 * [原型模式](./creational-patterns/prototype)
 
 ### 结构型模式
-* [职责链模式](./behavior-patterns/chain-of-responsibility-pattern)
+* [职责链模式](./behavioral-patterns/chain-of-responsibility-pattern)
