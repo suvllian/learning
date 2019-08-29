@@ -15,14 +15,12 @@ class GetData extends Handler
 	public function handleRequest($request)
 	{
 		$this->handle = "data";
-		if($request->getService()==$this->handle)
-		{
+		if($request->getService()==$this->handle) {
 			//进行处理
 			$cookieName = md5("xunlan");
 			$cookieContent = md5("allow");
 
 			$page = $_GET['page']-0;
-
 
 			if (empty($_COOKIE[$cookieName])) {
 			    setCookie($cookieName,$cookieContent,time()+86400);
@@ -33,9 +31,7 @@ class GetData extends Handler
 			$result = $db->fetchAll($sql);
 			echo json_encode($result);
 
-		}
-		elseif($this->successor!=NULL)
-		{
+		} elseif ($this->successor!= NULL) {
 			$this->successor->handleRequest($request);
 		}
 	}
