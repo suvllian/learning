@@ -16,6 +16,10 @@
 * CSS3立体轮播图 
 
 ## [JavaScript](./JavaScript)  
+
+### Javascript实践
+* 页面复制内容到剪贴板
+
 ### 数据结构的JavaScript实现 
 * 集合
 * 栈
@@ -26,9 +30,6 @@
 * 双向链表
 * 字典
 * 图
-
-### [TypeScript](./TypeScript)
-* TypeScript的基本使用
 
 ### 构建工具入门  
 * gulp的使用
@@ -49,6 +50,9 @@
 * 实现virtual dom
 * WebAssembly Demo
 * PWA Demo
+
+## [TypeScript](./TypeScript)
+* TypeScript的基本使用
 
 ## [React](./React)
 * react计数器

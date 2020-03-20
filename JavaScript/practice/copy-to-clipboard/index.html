@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="balloon-content">复制</div>
+
+  <script>
+    let doc = window.document
+    let $elem = doc.createElement('textarea')
+    const validTypes = ['string', 'number']
+
+    function handleText(content) {
+      // 判断类型 只能是数字或字符串
+      if (!validTypes.includes(typeof content)) {
+        throw new Error('类型有误')
+      }
+
+      let styles = $elem.style
+      styles.width = '48px'
+      styles.height = '24px'
+      styles.position = 'fixed'
+      styles.zIndex = '0'
+      styles.left = '-500px'
+      styles.top = '-500px'
+      $elem.value = content === null || content === undefined ? '' : ('' + content)
+      if (!$elem.parentNode) {
+        doc.body.appendChild($elem)
+      }
+    }
+
+    function copyText() {
+      $elem.focus()
+      $elem.select()
+      $elem.setSelectionRange(0, $elem.value.length)
+      return doc.execCommand('copy')
+    }
+
+    function copyClipboard(content) {
+      let result = false
+
+      try {
+        handleText(content)
+        result = copyText()
+      } catch (e) {
+        console.log(e)
+      }
+
+      return result
+    }
+
+
+    const dom = document.querySelector('.balloon-content')
+    dom.addEventListener('click', function () {
+      if (copyClipboard(11111)) {
+        console.log('复制成功')
+      } else {
+        console.error('复制失败')
+      }
+    })
+  </script>
+</body>
+
+</html>
